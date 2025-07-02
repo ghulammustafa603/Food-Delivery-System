@@ -10,16 +10,31 @@ function OrderForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Pass order details to receipt page
-    navigate('/receipt', {
-      state: {
-        name,
+    if (cart.length === 0) {
+      alert('Your cart is empty!');
+      return;
+    }
+    fetch('http://localhost:5000/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        items: cart,
+        customerName: name,
         address,
-        cart,
         total: cart.reduce((sum, item) => sum + item.price, 0)
-      }
-    });
-    clearCart();
+      })
+    })
+      .then(res => res.json())
+      .then(order => {
+        navigate('/receipt', { state: {
+          name: order.customerName || name,
+          address: order.address || address,
+          cart: order.items || cart,
+          total: order.total
+        }});
+        clearCart();
+      })
+      .catch(() => alert('Order failed. Please try again.'));
   };
 
   return (

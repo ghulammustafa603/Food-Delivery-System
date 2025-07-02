@@ -22,7 +22,7 @@ function Receipt() {
       <div style={{marginBottom: '1rem'}}><strong>Items:</strong>
         <ul style={{listStyle: 'none', padding: 0}}>
           {cart.map((item, idx) => (
-            <li key={idx}>{item.name} - ${item.price}</li>
+            <li key={idx}>{item.name} - ${item.price} x {item.quantity || 1}</li>
           ))}
         </ul>
       </div>
