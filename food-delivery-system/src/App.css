@@ -1,8 +1,171 @@
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f3f0ff 0%, #e0c3fc 100%);
+  min-height: 100vh;
+  margin: 0;
+  transition: background 0.4s;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 2rem auto;
   padding: 2rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(127,29,255,0.10), 0 2px 8px rgba(255,107,107,0.08);
   text-align: center;
+  transition: box-shadow 0.3s;
+}
+
+nav {
+  background: linear-gradient(90deg, #7f1dff 0%, #ff6b6b 100%);
+  padding: 1.2rem 2.5rem;
+  border-radius: 16px;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 4px 24px rgba(127,29,255,0.13);
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.15rem;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+  padding: 0.4rem 1.5rem;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(255,107,107,0.10);
+  position: relative;
+}
+nav a:hover {
+  background: linear-gradient(90deg, #ffd93d 0%, #7f1dff 100%);
+  color: #7f1dff;
+  box-shadow: 0 4px 16px #ffd93d99, 0 2px 8px #7f1dff33;
+}
+
+.card {
+  background: linear-gradient(120deg, #fff 60%, #ffd6fa 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(127,29,255,0.13), 0 2px 8px rgba(255,107,107,0.08);
+  padding: 2.5rem 2rem;
+  margin: 2.5rem auto;
+  max-width: 460px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s, transform 0.2s;
+  border: 2px solid #ffd93d33;
+}
+.card:hover {
+  box-shadow: 0 16px 48px #7f1dff33, 0 4px 16px #ff6b6b33;
+  transform: translateY(-2px) scale(1.01);
+}
+.card h2 {
+  margin-bottom: 1.5rem;
+  color: #7f1dff;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #ffd93d44;
+}
+
+.button {
+  background: linear-gradient(90deg, #ff6b6b 0%, #7f1dff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  margin-top: 1.2rem;
+  box-shadow: 0 4px 16px #ffd93d55, 0 2px 8px #7f1dff33;
+  letter-spacing: 0.5px;
+  outline: none;
+  position: relative;
+}
+.button:hover {
+  background: linear-gradient(90deg, #ffd93d 0%, #ff6b6b 100%);
+  color: #7f1dff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 32px #ffd93d99, 0 4px 16px #7f1dff33;
+}
+.button:active {
+  transform: scale(0.98);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.2rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+form label {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #7f1dff;
+  letter-spacing: 0.5px;
+}
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  padding: 0.7rem 1.1rem;
+  border: 2px solid #ffd93d99;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  width: 100%;
+  transition: border 0.2s, box-shadow 0.2s;
+  background: #fff8fc;
+  box-shadow: 0 1px 8px #ffd93d22;
+}
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+  border: 2px solid #7f1dff;
+  outline: none;
+  box-shadow: 0 0 0 3px #7f1dff33;
+}
+
+h2 {
+  color: #7f1dff;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #ffd93d44;
+}
+
+.toast {
+  background: linear-gradient(90deg, #ffd93d 0%, #7f1dff 100%);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px #ffd93d99, 0 2px 8px #7f1dff33;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  font-size: 1.15rem;
+  animation: fadeIn 0.4s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .logo {
@@ -33,10 +196,27 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
+}
+
+@media (max-width: 600px) {
+  #root {
+    padding: 0.5rem;
+  }
+  .card {
+    padding: 1rem 0.5rem;
+    max-width: 98vw;
+  }
+  nav {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .button {
+    width: 100%;
+    padding: 0.8rem 0;
+  }
+  .card h2, h2 {
+    font-size: 1.3rem;
+  }
 }
